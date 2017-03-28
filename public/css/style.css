@@ -1,0 +1,153 @@
+/*reset the page style*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+td, th {
+    text-align: left;
+    padding: 10px;
+}
+
+
+/*-------------------------------------------*/
+/*
+* Defined variables
+*
+*/
+@font-face {
+    font-family: "San Francisco Display Bold";
+    src: url("../fonts/sanfranciscodisplay-bold.woff");
+}
+
+@font-face {
+    font-family: "San Francisco Display Medium";
+    src: url("../fonts/sanfranciscodisplay-medium.woff");
+}
+
+@font-face {
+    font-family: "San Francisco Display Regular";
+    src: url("../fonts/sanfranciscodisplay-regular.woff");
+}
+
+@font-face {
+    font-family: "San Francisco Display Semibold";
+    src: url("../fonts/sanfranciscodisplay-semibold.woff");
+}
+
+@font-face {
+    font-family: "San Francisco Display Thin";
+    src: url("../fonts/sanfranciscodisplay-thin.woff");
+}
+
+@font-face {
+    font-family: "San Francisco Display Ultralight";
+    src: url("../fonts/sanfranciscodisplay-ultralight.woff");
+}
+
+
+/*-------------------------------------------*/
+/*
+* Header/Banner
+*
+*/
+
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color: transparent;
+    overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: right;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: "San Francisco Display Thin", sans-serif;
+    text-space: 4px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    opacity: 0.4;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.banner{
+    background-image: url(../img/banner.png);
+    margin: 0;
+    top:0;
+    right:0;
+    width: 100%;
+    background-position: center;
+    background-size: contain;
+    height: 451px;
+}
+
+.title{
+    font-size: 70px;
+    font-family: "San Francisco Display Bold", sans-serif;
+    text-align: center;
+    color: white;
+    vertical-align: middle;
+    line-height: 300px;
+}
+
+
+/*-------------------------------------------*/
+/*
+* Input Text Field
+*
+*/
+::-webkit-input-placeholder { /* WebKit browsers */
+    font-family: "San Francisco Display Thin", serif;
+    color: white;
+    opacity: 1 !important;
+}
+
+input[type=text],
+input[type=email],
+input[type=tel],
+input[type=password],
+input[type=time],
+input[type=date],
+input[type=number],
+option,
+select {
+    font-family: "San Francisco Display Thin", serif;
+    font-size: 25px;
+    color: black;
+    padding: 17px 2px;
+    margin: 10px auto;
+    display: inline-block;
+    border: none;
+    background-color: rgba(158,158,158,0.3);
+}
+
+
+/*-------------------------------------------*/
+/*
+* Text
+*
+*/
+
+.haluwasa-label-input-field{
+    font-family: "San Francisco Display Ultralight", serif;
+    font-size: 20px;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Haluwasa Christian Family Camp</title>
+
+        <!--remote-->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+        <script src="https://unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+        <!--local-->
+        <script src="./js/app.js"></script>
+        <script src="./js/app.routes.js"></script>
+        <script src="./js/routes.js"></script>
+        <script src="./js/controllers/registrationForm.js"></script>
+
+        <!--style-->
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    </head>
+
+    <body ng-app="haluwasaCamp">
+
+        <div class="banner">
+            <!--nav bar-->
+            <div class="topnav" id="myTopnav">
+                <a ui-sref="contactUs">Contact Us</a>
+                <a ui-sref="registration">Registration</a>
+                <a ui-sref="aboutUs">About Us</a>
+            </div>
+            <div class="behind-title">
+                <h1 class="title">Haluwasa Christian Family Camp</h1>
+            </div>
+
+        </div>
+
+        <br><br>
+
+        <!-- this is the view -->
+        <ui-view></ui-view>
+
+
+    </body>
+
+</html>

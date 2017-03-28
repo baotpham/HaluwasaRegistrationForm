@@ -1,0 +1,19 @@
+{
+  "name": "haluwasa-web",
+  "version": "1.0.0",
+  "description": "Custom registration form for Haluwasa Family Christian Camp.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baotpham/HaluwasaRegistrationForm.git"
+  },
+  "author": "Bao Pham",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/baotpham/HaluwasaRegistrationForm/issues"
+  },
+  "homepage": "https://github.com/baotpham/HaluwasaRegistrationForm#readme"
+}
