@@ -125,6 +125,7 @@ input[type=password],
 input[type=time],
 input[type=date],
 input[type=number],
+textarea,
 option,
 select {
     font-family: "San Francisco Display Thin", serif;
@@ -135,6 +136,7 @@ select {
     display: inline-block;
     border: none;
     background-color: rgba(158,158,158,0.3);
+    resize: none; /*for textarea*/
 }
 
 
@@ -150,4 +152,18 @@ select {
     position: relative;
     display: inline-block;
     cursor: pointer;
+}
+
+
+.haluwasa-button-submit{
+    font-family: "San Francisco Display Thin", serif;
+    letter-spacing: 2.5px;
+    font-size: 26px;
+    color: white;
+    width: 15%;
+    padding: 17px 40px;
+    margin: 10px 60px;
+    display: inline-block;
+    border: none;
+    background-color: #FFC00E;
 }

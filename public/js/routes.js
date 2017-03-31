@@ -18,7 +18,7 @@ angular.module('app.routes', ['ui.router'])
                 name: 'Registration',
                 url: '/registration',
                 templateUrl: 'templates/registrationPage.html',
-                controller: 'registrationPageCtrl'
+                controller: 'registrationPageCtrl',
             })
 
             .state('aboutUs',{

@@ -3,4 +3,4 @@
  */
 
 
-var app = angular.module('haluwasaCamp', ['app.controllers','app.routes'])
+var app = angular.module('haluwasaCamp', ['app.controllers','app.routes', 'app.services', 'app.directives'])

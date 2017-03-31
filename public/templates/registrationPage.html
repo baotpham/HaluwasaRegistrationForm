@@ -6,7 +6,7 @@
 
 <form>
 
-    <table style="text-align: start">
+    <table style="text-align: start;">
         <tr>
             <th style="width: 20%">
                 <label class="haluwasa-label-input-field" for="firstName" >First Name*</label>
@@ -51,8 +51,10 @@
 
     <!--add another member-->
     <div id="anotherMember"></div>
+    <!--<personal-info-form ng-repeat="register in registers">{{register}}</personal-info-form>-->
     <br><br>
     <img src="../img/addAnotherMember.png" style="margin-left: 20px;" ng-click="addAnotherMember()">
+    <img src="" class="deleteMember">
 
 
     <br><br>
@@ -133,10 +135,9 @@
     </table>
 
 
-
+    <!--medical issue-->
     <br>
     <hr>
-    <!--medical issue-->
     <h1 style="font-size: 30px; margin-left: 20px;">Medical Information</h1>
     <label class="haluwasa-label-input-field" style="margin-left: 20px;" for="medical">Medical Issue/Allergies?*</label>
     <select ng-model="info.medical" style="height: 70px;" id="medical" name="medical" required>
@@ -144,15 +145,55 @@
         <option value="No">No</option>
     </select>
     <br>
-    <label class="haluwasa-label-input-field" style="margin-left: 20px;" for="medicalDesc">Please specify*</label>
-    <input ng-model="info.medicalDesc" style="width: 100%;" id="medicalDesc" name="medicalDesc" type="text"><br>
+    <label class="haluwasa-label-input-field" style="margin-left: 20px;" for="medicalDesc">Please specify*</label><br>
+    <textarea rows="4" cols="50" style="margin-left: 20px;" g-model="info.medicalDesc" id="medicalDesc" name="medicalDesc" ></textarea>
 
 
+    <!--Emergency Contact-->
+    <br><br>
+    <hr>
+    <h1 style="font-size: 30px; margin-left: 20px;">Emergency Contact</h1>
+    <table style="text-align: start; margin-left: 20px;">
+        <tr>
+            <th style="width: 25%">
+                <label class="haluwasa-label-input-field" for="emergencyFirstName" >First Name*</label>
+                <input ng-model="info.emergencyFirstName" style="width: 100%" type="text" id="emergencyFirstName" name="emergencyFirstName" required>
+            </th>
+            <th style="width: 25%">
+                <label class="haluwasa-label-input-field" for="emergencyLastName">Last Name*</label>
+                <input ng-model="info.emergencyLastName" style="width: 100%" type="text" id="emergencyLastName" name="emergencyLastName" required>
+            </th>
+            <th style="width: 25%">
+                <label class="haluwasa-label-input-field" for="emergencyPhone" >Phone Number*</label><br>
+                <input ng-model="info.emergencyPhone" style="width: 100%;" type="tel" id="emergencyPhone" name="emergencyPhone" required>
+            </th>
+            <th style="width: 25%">
+                <label class="haluwasa-label-input-field" for="emergencyRelationship">Relationship*</label>
+                <input ng-model="info.emergencyRelationship" style="width: 100%;" type="text" id="emergencyRelationship" name="emergencyRelationship" required>
+            </th>
+        </tr>
+    </table>
 
 
+    <!--Payment-->
+    <br>
+    <hr>
+    <h1 style="font-size: 30px; margin-left: 20px;">Payment</h1>
+    <p style="margin-left: 20px;">*All payments are paid in person”.</p><br>
+    <label class="haluwasa-label-input-field" style="margin-left: 20px;" for="methodOfPayment">Method of Payment*</label><br>
+    <select ng-model="info.methodOfPayment" style="height: 70px; margin-left: 20px;" id="methodOfPayment" name="methodOfPayment" required>
+        <option value="Check">Check</option>
+        <option value="Cash">Cash</option>
+    </select>
 
+
+    <!--Total Fee-->
+    <br>
+    <hr>
+    <h1 style="font-size: 30px; margin-right: 20px; float: right">Total Fee: $0</h1>
+    <br><br><br>
 
 
     <!--submit button-->
-    <button class="haluwasa-button-submit" style="float: right" ng-click="submit()">Submit</button>
+    <button class="haluwasa-button-submit" style="float: right; margin-right: 20px;" ng-click="submit()">Submit</button>
 </form>
