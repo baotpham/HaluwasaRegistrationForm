@@ -5,13 +5,17 @@
 angular.module('app.controllers', [])
 
 
-    .controller('registrationPageCtrl', ['$scope', 'RegistersData',
+    .controller('registrationPageCtrl', ['$scope', 'RegistersData', '$window',
 
-        function ($scope, RegistersData) {
-        
+        function ($scope, $window, RegistersData) {
+
+            var CLIENT_ID = '679590288663-6mae7gt4cgtnoqedcnhbmueeukit7b7u.apps.googleusercontent.com';
+
             //errors handling
             $scope.errorpopup = "";
             $scope.thankyou = false;
+
+            $scope.totalFee = 0;
 
             //list of other members to add
             $scope.registerMembersToAdd = [];
@@ -60,7 +64,7 @@ angular.module('app.controllers', [])
                         age: "",
                         relationship: ""
                     });
-
+                    $scope.totalFee += 120;
                     console.log("registrationFormCtrl: added a member");
                 }
             };
@@ -93,6 +97,24 @@ angular.module('app.controllers', [])
                 }
             }
 
+            //update age
+            $scope.updateTotalFee = function(age){
+                if(age <= 5){
+                    $scope.errorpopup = "";
+                    $scope.totalFee = 0;
+                }else if(age >= 6 && age < 11){
+                    $scope.errorpopup = "";
+                    $scope.totalFee = 60;
+                }else if(age >= 12 && age <= 19){
+                    $scope.errorpopup = "";
+                    $scope.totalFee = 100;
+                }else if(age >= 20){
+                    $scope.errorpopup = "";
+                    $scope.totalFee = 120;
+                }else{
+                    $scope.errorpopup = "Age is empty";
+                }
+            }
 
             $scope.deleteMember = function(registerMemberToAdd){
                 var answer = confirm("Are you sure you want to delete this member?");
@@ -100,6 +122,7 @@ angular.module('app.controllers', [])
                 if(answer){
                     var index = $scope.registerMembersToAdd.indexOf(registerMemberToAdd);
                     $scope.registerMembersToAdd.splice(index, 1);
+                    $scope.totalFee -= 120;
                     console.log("registrationFormCtrl: deleted a member");
                 }
             };

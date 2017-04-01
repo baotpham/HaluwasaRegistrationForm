@@ -175,8 +175,8 @@ select {
 *
 */
 .haluwasa-popup-error-message {
-    font-family: "San Francisco Display Ultralight", serif;
-    font-size: 16px;
+    font-family: "San Francisco Display Thin", serif;
+    font-size: 20px;
     letter-spacing: 2px;
     text-align: center;
     color: white;
@@ -185,5 +185,5 @@ select {
     margin: 10px auto;
     border: none;
     border-radius: 25px;
-    background-color: rgba(255,34,36,0.5);
+    background-color: rgba(255,34,36,1);
 }

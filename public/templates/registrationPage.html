@@ -1,6 +1,12 @@
 <h1 style="text-align: center">
     ****If you are registering for more than one person, please write YOUR INFORMATION first then click on “Add Another Member”.
-</h1>
+</h1><br>
+<p style="text-align: center">
+    5 years old & under = FREE<br>
+    6 yr - 11 yr = $60<br>
+    12 yr - 19 yr = $100<br>
+    20 yr & older = $120<br>
+</p>
 
 <br><br><br>
 
@@ -40,7 +46,7 @@
             </th>
             <th style="width: 6%">
                 <label class="haluwasa-label-input-field" for="mainMemberAge">Age*</label>
-                <input ng-model="mainMember.age" style="width: 100%" type="number" min="0" id="mainMemberAge" name="mainMemberAge" required>
+                <input ng-model="mainMember.age" style="width: 100%" type="number" min="0" id="mainMemberAge" name="mainMemberAge" ng-change="updateTotalFee(mainMember.age)" required>
             </th>
             <th style="width: 20%">
                 <label class="haluwasa-label-input-field" for="mainMemberRelationship">Relationship*</label>
@@ -225,7 +231,7 @@
     <br>
     <hr>
     <h1 style="font-size: 30px; margin-left: 20px;">Payment</h1>
-    <p style="margin-left: 20px;">*All payments are paid in person”.</p><br>
+    <p style="margin-left: 20px;">*All payments are paid in person.</p><br>
     <label class="haluwasa-label-input-field" style="margin-left: 20px;" for="methodOfPayment">Method of Payment*</label><br>
     <select ng-model="mainMember.methodOfPayment" style="height: 70px; margin-left: 20px;" id="methodOfPayment" name="methodOfPayment" required>
         <option value="Check">Check</option>
@@ -236,7 +242,7 @@
     <!--Total Fee-->
     <br>
     <hr>
-    <h1 style="font-size: 30px; margin-right: 20px; float: right">Total Fee: $0</h1>
+    <h1 style="font-size: 30px; margin-right: 20px; float: right">Total Fee: ${{totalFee}}</h1>
     <br><br><br>
 
 
