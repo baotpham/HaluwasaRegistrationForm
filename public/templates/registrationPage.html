@@ -4,54 +4,98 @@
 
 <br><br><br>
 
-<form>
+<div ng-if="errorpopup != '' && thankyou == false " class="haluwasa-popup-error-message">{{errorpopup}}</div>
 
+<form>
     <table style="text-align: start;">
         <tr>
             <th style="width: 20%">
-                <label class="haluwasa-label-input-field" for="firstName" >First Name*</label>
-                <input ng-model="info.firstName" style="width: 100%" type="text" id="firstName" name="firstName"
+                <label class="haluwasa-label-input-field" for="mainMemberFirstName" >First Name*</label>
+                <input ng-model="mainMember.firstName" style="width: 100%" type="text" id="mainMemberFirstName" name="mainMemberFirstName"
                        required>
             </th>
             <th style="width: 20%">
-                <label class="haluwasa-label-input-field" for="lastName">Last Name*</label>
-                <input ng-model="info.lastName" style="width: 100%" type="text" id="lastName" name="lastName"
+                <label class="haluwasa-label-input-field" for="mainMemberLastName">Last Name*</label>
+                <input ng-model="mainMember.lastName" style="width: 100%" type="text" id="mainMemberLastName" name="mainMemberLastName"
                        required>
             </th>
             <th style="width: 6%">
-                <label class="haluwasa-label-input-field" for="shirtSize">Size*</label>
-                <select ng-model="info.shirtSize" style="height: 70px; width: 100%;" id="shirtSize" name="shirtSize" required>
+                <label class="haluwasa-label-input-field" for="mainMemberShirtSize">Size*</label>
+                <select ng-model="mainMember.shirtSize" style="height: 70px; width: 100%;" id="mainMemberShirtSize" name="mainMemberShirtSize" required>
                     <option value="S">S</option>
                     <option value="M">M</option>
                     <option value="L">L</option>
                 </select>
             </th>
             <th style="width: 10%">
-                <label class="haluwasa-label-input-field" for="dob">DOB*</label>
-                <input ng-model="info.dob" style="width: 100%" type="date" id="dob" name="dob">
+                <label class="haluwasa-label-input-field" for="mainMemberDob">DOB*</label>
+                <input ng-model="mainMember.dob" style="width: 100%" type="date" id="mainMemberDob" name="mainMemberDob">
             </th>
             <th style="width: 6%">
-                <label class="haluwasa-label-input-field" for="gender">Gender*</label>
-                <select ng-model="info.gender" style="height: 70px; width: 100%" id="gender" name="gender" required>
+                <label class="haluwasa-label-input-field" for="mainMemberGender">Gender*</label>
+                <select ng-model="mainMember.gender" style="height: 70px; width: 100%" id="mainMemberGender" name="mainMemberGender" required>
                     <option value="F">F</option>
                     <option value="M">M</option>
                 </select>
             </th>
             <th style="width: 6%">
-                <label class="haluwasa-label-input-field" for="age">Age*</label>
-                <input ng-model="info.age" style="width: 100%" type="text" id="age" name="age" required>
+                <label class="haluwasa-label-input-field" for="mainMemberAge">Age*</label>
+                <input ng-model="mainMember.age" style="width: 100%" type="number" min="0" id="mainMemberAge" name="mainMemberAge" required>
             </th>
             <th style="width: 20%">
-                <label class="haluwasa-label-input-field" for="relationship">Relationship*</label>
-                <input ng-model="info.relationship" style="width: 100%" type="text" id="relationship" name="relationship" required>
+                <label class="haluwasa-label-input-field" for="mainMemberRelationship">Relationship*</label>
+                <input ng-model="mainMember.relationship" style="width: 100%" type="text" id="mainMemberRelationship" name="mainMemberRelationship" required>
             </th>
         </tr>
     </table>
 
 
     <!--add another member-->
-    <div id="anotherMember"></div>
-    <!--<personal-info-form ng-repeat="register in registers">{{register}}</personal-info-form>-->
+    <div ng-repeat="registerMemberToAdd in registerMembersToAdd">
+        <table style="text-align: start;">
+            <tr>
+                <th style="width: 20%">
+                    <label class="haluwasa-label-input-field" for="firstName" >First Name*</label>
+                    <input ng-model="registerMemberToAdd.firstName" style="width: 100%" type="text" id="firstName" name="firstName"
+                           required>
+                </th>
+                <th style="width: 20%">
+                    <label class="haluwasa-label-input-field" for="lastName">Last Name*</label>
+                    <input ng-model="registerMemberToAdd.lastName" style="width: 100%" type="text" id="lastName" name="lastName"
+                           required>
+                </th>
+                <th style="width: 6%">
+                    <label class="haluwasa-label-input-field" for="shirtSize">Size*</label>
+                    <select ng-model="registerMemberToAdd.shirtSize" style="height: 70px; width: 100%;" id="shirtSize" name="shirtSize" required>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                    </select>
+                </th>
+                <th style="width: 10%">
+                    <label class="haluwasa-label-input-field" for="dob">DOB*</label>
+                    <input ng-model="registerMemberToAdd.dob" style="width: 100%" type="date" id="dob" name="dob">
+                </th>
+                <th style="width: 6%">
+                    <label class="haluwasa-label-input-field" for="gender">Gender*</label>
+                    <select ng-model="registerMemberToAdd.gender" style="height: 70px; width: 100%" id="gender" name="gender" required>
+                        <option value="F">F</option>
+                        <option value="M">M</option>
+                    </select>
+                </th>
+                <th style="width: 6%">
+                    <label class="haluwasa-label-input-field" for="age">Age*</label>
+                    <input ng-model="registerMemberToAdd.age" style="width: 100%" type="number" min="0" id="age" name="age" required>
+                </th>
+                <th style="width: 20%">
+                    <label class="haluwasa-label-input-field" for="relationship">Relationship*</label>
+                    <input ng-model="registerMemberToAdd.relationship" style="width: 80%" type="text" id="relationship" name="relationship" required>
+                    <img src="../../img/deleteAMember.png" width="20px" alt="deleteButton" ng-click="deleteMember(registerMemberToAdd)">
+                </th>
+            </tr>
+        </table>
+    </div>
+
     <br><br>
     <img src="../img/addAnotherMember.png" style="margin-left: 20px;" ng-click="addAnotherMember()">
     <img src="" class="deleteMember">
@@ -66,40 +110,40 @@
         <th>
             <th style="width: 70%">
                 <label class="haluwasa-label-input-field" for="address" >Address*</label><br>
-                <input ng-model="info.address" style="width: 100%;" type="text" id="address" name="address" required><br>
+                <input ng-model="mainMember.address" style="width: 100%;" type="text" id="address" name="address" required><br>
 
                 <label class="haluwasa-label-input-field" for="address2" >Address 2</label><br>
-                <input ng-model="info.address2" style="width: 100%;" type="text" id="address2" name="address2">
+                <input ng-model="mainMember.address2" style="width: 100%;" type="text" id="address2" name="address2">
 
                 <table style="text-align: start">
                     <tr>
                         <th style="width: 50%">
                             <label class="haluwasa-label-input-field" for="phone" >Phone Number*</label><br>
-                            <input ng-model="info.phone" style="width: 100%;" type="tel" id="phone" name="phone" required>
+                            <input ng-model="mainMember.phone" style="width: 100%;" type="tel" id="phone" name="phone" required>
 
                             <label class="haluwasa-label-input-field" for="homeChurch" >Home Church</label><br>
-                            <input ng-model="info.homeChurch" style="width: 100%;" type="text" id="homeChurch" name="homeChurch">
+                            <input ng-model="mainMember.homeChurch" style="width: 100%;" type="text" id="homeChurch" name="homeChurch">
                         </th>
                         <th style="width: 50%">
                             <label class="haluwasa-label-input-field" for="email" >Email</label><br>
-                            <input ng-model="info.email" style="width: 100%;" type="email" id="email" name="email">
+                            <input ng-model="mainMember.email" style="width: 100%;" type="email" id="email" name="email">
 
                             <label class="haluwasa-label-input-field" for="churchPhone" >Church Phone Number</label><br>
-                            <input ng-model="info.churchPhone" style="width: 100%;" type="tel" id="churchPhone" name="churchPhone">
+                            <input ng-model="mainMember.churchPhone" style="width: 100%;" type="tel" id="churchPhone" name="churchPhone">
                         </th>
                     </tr>
                 </table>
             </th>
             <th>
                 <label class="haluwasa-label-input-field" for="city" >City*</label><br>
-                <input ng-model="info.city" style="width: 100%;" type="text" id="city" name="city" required><br>
+                <input ng-model="mainMember.city" style="width: 100%;" type="text" id="city" name="city" required><br>
 
                 <label class="haluwasa-label-input-field" for="state" >State*</label>
                 <label class="haluwasa-label-input-field" style="margin-left: 20px;" for="zip" >Zip*</label>
 
                 <br>
 
-                <select ng-model="info.state" style="height: 70px; width: 70px;" id="state" name="state" required>
+                <select ng-model="mainMember.state" style="height: 70px; width: 70px;" id="state" name="state" required>
                     <option value="AL">AL</option><option value="AK">AK</option><option value="AS">AS</option>
                     <option value="AZ">AZ</option><option value="AR">AR</option><option value="CA">CA</option>
                     <option value="CO">CO</option><option value="CT">CT</option><option value="DE">DE</option>
@@ -120,7 +164,7 @@
                     <option value="VA">VA</option><option value="VI">VI</option><option value="WA">WA</option>
                     <option value="WV">WV</option><option value="WI">WI</option><option value="WY">WY</option>
                 </select>
-                <input ng-model="info.zip" style="width: 250px;" type="number" id="zip" name="zip" equired><br>
+                <input ng-model="mainMember.zip" style="width: 250px;" type="number" id="zip" name="zip" equired><br>
 
                 <table><tr><th>
                     <!--fillers-->
@@ -140,13 +184,15 @@
     <hr>
     <h1 style="font-size: 30px; margin-left: 20px;">Medical Information</h1>
     <label class="haluwasa-label-input-field" style="margin-left: 20px;" for="medical">Medical Issue/Allergies?*</label>
-    <select ng-model="info.medical" style="height: 70px;" id="medical" name="medical" required>
-        <option value="Yes">Yes</option>
-        <option value="No">No</option>
+    <select ng-model="mainMember.medical" style="height: 70px;" id="medical" name="medical" required>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
     </select>
     <br>
-    <label class="haluwasa-label-input-field" style="margin-left: 20px;" for="medicalDesc">Please specify*</label><br>
-    <textarea rows="4" cols="50" style="margin-left: 20px;" g-model="info.medicalDesc" id="medicalDesc" name="medicalDesc" ></textarea>
+    <div ng-if="mainMember.medical == 'yes'">
+        <label class="haluwasa-label-input-field" style="margin-left: 20px;" for="medicalDesc">Please specify*</label><br>
+        <textarea rows="4" cols="50" style="margin-left: 20px;" g-model="mainMember.medicalDesc" id="medicalDesc" name="medicalDesc"></textarea>
+    </div>
 
 
     <!--Emergency Contact-->
@@ -157,19 +203,19 @@
         <tr>
             <th style="width: 25%">
                 <label class="haluwasa-label-input-field" for="emergencyFirstName" >First Name*</label>
-                <input ng-model="info.emergencyFirstName" style="width: 100%" type="text" id="emergencyFirstName" name="emergencyFirstName" required>
+                <input ng-model="mainMember.emergencyFirstName" style="width: 100%" type="text" id="emergencyFirstName" name="emergencyFirstName" required>
             </th>
             <th style="width: 25%">
                 <label class="haluwasa-label-input-field" for="emergencyLastName">Last Name*</label>
-                <input ng-model="info.emergencyLastName" style="width: 100%" type="text" id="emergencyLastName" name="emergencyLastName" required>
+                <input ng-model="mainMember.emergencyLastName" style="width: 100%" type="text" id="emergencyLastName" name="emergencyLastName" required>
             </th>
             <th style="width: 25%">
                 <label class="haluwasa-label-input-field" for="emergencyPhone" >Phone Number*</label><br>
-                <input ng-model="info.emergencyPhone" style="width: 100%;" type="tel" id="emergencyPhone" name="emergencyPhone" required>
+                <input ng-model="mainMember.emergencyPhone" style="width: 100%;" type="tel" id="emergencyPhone" name="emergencyPhone" required>
             </th>
             <th style="width: 25%">
                 <label class="haluwasa-label-input-field" for="emergencyRelationship">Relationship*</label>
-                <input ng-model="info.emergencyRelationship" style="width: 100%;" type="text" id="emergencyRelationship" name="emergencyRelationship" required>
+                <input ng-model="mainMember.emergencyRelationship" style="width: 100%;" type="text" id="emergencyRelationship" name="emergencyRelationship" required>
             </th>
         </tr>
     </table>
@@ -181,7 +227,7 @@
     <h1 style="font-size: 30px; margin-left: 20px;">Payment</h1>
     <p style="margin-left: 20px;">*All payments are paid in person”.</p><br>
     <label class="haluwasa-label-input-field" style="margin-left: 20px;" for="methodOfPayment">Method of Payment*</label><br>
-    <select ng-model="info.methodOfPayment" style="height: 70px; margin-left: 20px;" id="methodOfPayment" name="methodOfPayment" required>
+    <select ng-model="mainMember.methodOfPayment" style="height: 70px; margin-left: 20px;" id="methodOfPayment" name="methodOfPayment" required>
         <option value="Check">Check</option>
         <option value="Cash">Cash</option>
     </select>

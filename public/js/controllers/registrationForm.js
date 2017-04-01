@@ -8,10 +8,19 @@ angular.module('app.controllers', [])
     .controller('registrationPageCtrl', ['$scope', 'RegistersData',
 
         function ($scope, RegistersData) {
+        
+            //errors handling
+            $scope.errorpopup = "";
+            $scope.thankyou = false;
 
-            $scope.registers =[];
+            //list of other members to add
+            $scope.registerMembersToAdd = [];
 
-            $scope.info = {
+            //list of other members
+            $scope.registerMembers = [];
+
+            //main member information
+            $scope.mainMember = {
                 firstName: "",
                 lastName: "",
                 shirtSize: "",
@@ -28,7 +37,7 @@ angular.module('app.controllers', [])
                 email: "",
                 homeChurch: "",
                 churchPhone: "",
-                medical: false,
+                medical: "no",
                 medicalDesc: "",
                 emergencyFirstName: "",
                 emergencyLastName: "",
@@ -37,78 +46,62 @@ angular.module('app.controllers', [])
                 methodOfPayment: ""
             };
 
-            var registerCount = 0;
-            var readyToAddAnotherMember = false;
-
-
-            var anotherMemberHTML = '<table style="text-align: start">' +
-                '<tr>' +
-                '<th style="width: 20%">' +
-                '<label class="haluwasa-label-input-field" for="firstName" >First Name*</label>' +
-                '<input ng-model="info.firstName" style="width: 100%" type="text" id="firstName" name="firstName" required>' +
-                '</th>'+
-                '<th style="width: 20%">'+
-                '<label class="haluwasa-label-input-field" for="lastName">Last Name*</label>' +
-                '<input ng-model="info.lastName" style="width: 100%" type="text" id="lastName" name="lastName" required>' +
-                '</th>'+
-                '<th style="width: 6%">'+
-                '<label class="haluwasa-label-input-field" for="shirtSize">Size*</label>'+
-                '<select ng-model="info.shirtSize" style="height: 70px; width: 100%;" id="shirtSize" name="shirtSize" required>'+
-                '<option value="S">S</option>'+
-                '<option value="M">M</option>'+
-                '<option value="L">L</option>'+
-                '</select>'+
-                '</th>'+
-                '<th style="width: 10%">'+
-                '<label class="haluwasa-label-input-field" for="dob">DOB*</label>'+
-                '<input ng-model="info.dob" style="width: 100%" type="date" id="dob" name="dob">'+
-                '</th>'+
-                '<th style="width: 6%">'+
-                '<label class="haluwasa-label-input-field" for="gender">Gender*</label>'+
-                '<select ng-model="info.gender" style="height: 70px; width: 100%" id="gender" name="gender" required>'+
-                '<option value="F">F</option>'+
-                '<option value="M">M</option>'+
-                '</select>'+
-                '</th>'+
-                '<th style="width: 6%">'+
-                '<label class="haluwasa-label-input-field" for="age">Age*</label>'+
-                '<input ng-model="info.age" style="width: 100%" type="text" id="age" name="age" required>'+
-                '</th>'+
-                '<th style="width: 20%">'+
-                '<label class="haluwasa-label-input-field" for="relationship">Relationship*</label>' +
-                '<input ng-model="info.relationship" style="width: 80%; margin-right: 10px;" type="text" id="relationship" name="relationship" required>'+
-                '<img src="../../img/deleteAMember.png" width="20px" alt="deleteButton" class="deleteMember">'+
-                '</th>'+
-                '</tr>'+
-                '</table>';
-
-
-
             $scope.addAnotherMember = function(){
 
                 if(isReadyToAddAnotherMember()){
-                    document.getElementById("anotherMember").innerHTML += anotherMemberHTML;
-                    RegistersData.setRegisterData($scope.info);
-                    $scope.registers.push(RegistersData.getRegisterData());
+                    $scope.errorpopup = "";
+
+                    $scope.registerMembersToAdd.push({
+                        firstName: "",
+                        lastName: "",
+                        shirtSize: "",
+                        dob: "",
+                        gender: "",
+                        age: "",
+                        relationship: ""
+                    });
+
                     console.log("registrationFormCtrl: added a member");
-                    registerCount++;
-                }else{
-                    alert("Please fill out the information for current register first!");
                 }
-
-
             };
 
+            //check for empty fields
             function isReadyToAddAnotherMember(){
-                if($scope.info.firstName === "" || $scope.info.lastName === " "){
-                    readyToAddAnotherMember = false;
+                if($scope.mainMember.firstName === "" || $scope.mainMember.lastName === " "){
+                    $scope.errorpopup = "First Name is empty";
+                    return false;
+                }else if($scope.mainMember.lastName === "" || $scope.mainMember.lastName === " "){
+                    $scope.errorpopup = "Last Name is empty";
+                    return false;
+                }else if($scope.mainMember.shirtSize === "" || $scope.mainMember.shirtSize === " "){
+                    $scope.errorpopup = "Shirt Size is empty";
+                    return false;
+                }else if($scope.mainMember.dob === "" || $scope.mainMember.dob === " "){
+                    $scope.errorpopup = "DOB is empty";
+                    return false;
+                }else if($scope.mainMember.gender === "" || $scope.mainMember.gender === " "){
+                    $scope.errorpopup = "Gender is empty";
+                    return false;
+                }else if ($scope.mainMember.age === "" || $scope.mainMember.age === " "){
+                    $scope.errorpopup = "Age is empty";
+                    return false;
+                }else if($scope.mainMember.relationship === "" || $scope.mainMember.relationship === " "){
+                    $scope.errorpopup = "Relationship is empty";
+                    return false;
                 }else{
-                    readyToAddAnotherMember = true;
+                    return true;
                 }
             }
 
-            $scope.deleteMember = function(){
 
-                console.log("registrationFormCtrl: deleted a member");
+            $scope.deleteMember = function(registerMemberToAdd){
+                var answer = confirm("Are you sure you want to delete this member?");
+
+                if(answer){
+                    var index = $scope.registerMembersToAdd.indexOf(registerMemberToAdd);
+                    $scope.registerMembersToAdd.splice(index, 1);
+                    console.log("registrationFormCtrl: deleted a member");
+                }
             };
+
         }]);

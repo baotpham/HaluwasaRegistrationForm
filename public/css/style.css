@@ -167,3 +167,23 @@ select {
     border: none;
     background-color: #FFC00E;
 }
+
+
+/*-------------------------------------------*/
+/*
+* Pop up
+*
+*/
+.haluwasa-popup-error-message {
+    font-family: "San Francisco Display Ultralight", serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-align: center;
+    color: white;
+    width: 40%;
+    padding: 17px 40px;
+    margin: 10px auto;
+    border: none;
+    border-radius: 25px;
+    background-color: rgba(255,34,36,0.5);
+}
