@@ -1,12 +1,23 @@
-<h1 style="text-align: center">
-    ****If you are registering for more than one person, please write YOUR INFORMATION first then click on “Add Another Member”.
+<h1 style="margin-left: 20px; font-size: 20px;">
+    INSTRUCTIONS:
 </h1><br>
-<p style="text-align: center">
-    5 years old & under = FREE<br>
-    6 yr - 11 yr = $60<br>
-    12 yr - 19 yr = $100<br>
-    20 yr & older = $120<br>
-</p>
+<h1 style="margin-left: 20px;">
+    If you are registering for more than one person, please fill in YOUR INFORMATION first then click on “Add Another Member”.
+</h1><br>
+<table style="margin-left: 20px; border: 1px solid black; border-collapse: collapse;">
+    <tr>
+        <th>5 years old & under</th>
+        <th>6 yr - 11 yr</th>
+        <th>12 yr - 19 yr</th>
+        <th>20 yr & older</th>
+    </tr>
+    <tr>
+        <td>FREE</td>
+        <td>$60</td>
+        <td>$100</td>
+        <td>$120</td>
+    </tr>
+</table>
 
 <br><br><br>
 
@@ -191,13 +202,13 @@
     <h1 style="font-size: 30px; margin-left: 20px;">Medical Information</h1>
     <label class="haluwasa-label-input-field" style="margin-left: 20px;" for="medical">Medical Issue/Allergies?*</label>
     <select ng-model="mainMember.medical" style="height: 70px;" id="medical" name="medical" required>
-        <option value="yes">Yes</option>
-        <option value="no">No</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
     </select>
     <br>
     <div ng-if="mainMember.medical == 'yes'">
         <label class="haluwasa-label-input-field" style="margin-left: 20px;" for="medicalDesc">Please specify*</label><br>
-        <textarea rows="4" cols="50" style="margin-left: 20px;" g-model="mainMember.medicalDesc" id="medicalDesc" name="medicalDesc"></textarea>
+        <textarea rows="4" cols="50" style="margin-left: 20px;" g-model="mainMember.medicalDesc" id="medicalDesc" name="medicalDesc" required></textarea>
     </div>
 
 
