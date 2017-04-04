@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
     <head>
         <meta charset="UTF-8">
         <title>Haluwasa Christian Family Camp</title>
@@ -11,37 +11,37 @@
         <script src="https://unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
+
         <!--local-->
         <script src="./js/app.js"></script>
         <script src="./js/app.routes.js"></script>
         <script src="./js/routes.js"></script>
+
         <script src="./js/controllers/registrationForm.js"></script>
-        <script src="./js/factories/registersData.js"></script>
-        <script src="./js/directives/personalInfoForm.js"></script>
+        <script src="./js/controllers/aboutUs.js"></script>
+        <script src="./js/controllers/contactUs.js"></script>
+        <script src="./js/controllers/homePage.js"></script>
 
         <!--style-->
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="./css/style.css">
 
     </head>
 
     <body ng-app="haluwasaCamp">
 
-        <div class="banner">
-            <!--nav bar-->
-            <div class="topnav" id="myTopnav">
-                <a ui-sref="contactUs">Contact Us</a>
-                <a ui-sref="registration">Registration</a>
-                <a ui-sref="aboutUs">About Us</a>
-            </div>
-            <div class="behind-title">
-                <h1 class="title">Haluwasa Christian Family Camp</h1>
-            </div>
-
+        <!--nav bar-->
+        <div class="topnav" id="myTopnav">
+            <a ui-sref="contactUs">CONTACT</a>
+            <a ui-sref="registration">REGISTRATION</a>
+            <a ui-sref="aboutUs">ABOUT</a>
+            <a ui-sref="homePage">HOME</a>
         </div>
 
-        <br><br>
         <!-- this is the view -->
         <ui-view></ui-view>
 
+        <footer class="botnav">
+            <a>May 26 - 29, 2017</a>
+        </footer>
     </body>
 </html>

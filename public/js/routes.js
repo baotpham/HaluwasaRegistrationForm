@@ -18,7 +18,7 @@ angular.module('app.routes', ['ui.router'])
                 name: 'Registration',
                 url: '/registration',
                 templateUrl: 'templates/registrationPage.html',
-                controller: 'registrationPageCtrl',
+                controller: 'registrationPageCtrl'
             })
 
             .state('aboutUs',{
@@ -35,6 +35,13 @@ angular.module('app.routes', ['ui.router'])
                 controller: 'contactUsCtrl'
             })
 
+            .state('homePage',{
+                name: 'Home Page',
+                url: '/',
+                templateUrl: 'templates/homePage.html',
+                controller: 'homePageCtrl'
+            })
 
-        $urlRouterProvider.otherwise('/aboutUs')
+
+        $urlRouterProvider.otherwise('/')
     });
