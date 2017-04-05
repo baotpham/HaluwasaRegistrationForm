@@ -64,7 +64,7 @@ var controllers = angular.module('app.controllers', [])
             var registerMemberIndex = 0;
 
             $scope.addAnotherMember = function(){
-                // if(isReadyToAddAnotherMember()){
+                if(isReadyToAddAnotherMember()){
                     $scope.errorpopup = "";
 
                     $scope.registerMembersToAdd.push({
@@ -80,10 +80,10 @@ var controllers = angular.module('app.controllers', [])
 
                     registerMemberIndex++;
                     console.log("registrationFormCtrl: added a member");
-                // }else{
-                //     //scroll up to the top of the page
-                //     $window.scrollTo(0, 0);
-                // }
+                }else{
+                    //scroll up to the top of the page
+                    $window.scrollTo(0, 0);
+                }
             };
 
             //check for empty fields

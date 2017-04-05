@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="92903de6-d4b0-41b1-bfae-f291c4723df9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/style.css" afterPath="$PROJECT_DIR$/public/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/controllers/registrationForm.js" afterPath="$PROJECT_DIR$/public/js/controllers/registrationForm.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/templates/registrationPage.html" afterPath="$PROJECT_DIR$/public/templates/registrationPage.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -56,8 +52,8 @@
           <file leaf-file-name="registrationForm.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/js/controllers/registrationForm.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-210">
-                  <caret line="50" column="14" lean-forward="true" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
+                <state relative-caret-position="276">
+                  <caret line="67" column="24" lean-forward="false" selection-start-line="67" selection-start-column="24" selection-end-line="67" selection-end-column="24" />
                   <folding />
                 </state>
               </provider>
@@ -260,10 +256,10 @@
         <option value="$PROJECT_DIR$/public/templates/homePage.html" />
         <option value="$PROJECT_DIR$/public/templates/aboutUs.html" />
         <option value="$PROJECT_DIR$/public/templates/contactUs.html" />
-        <option value="$PROJECT_DIR$/public/js/controllers/registrationForm.js" />
         <option value="$PROJECT_DIR$/public/templates/registrationPage.html" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/public/css/style.css" />
+        <option value="$PROJECT_DIR$/public/js/controllers/registrationForm.js" />
       </list>
     </option>
   </component>
@@ -534,12 +530,12 @@
       <workItem from="1491106730565" duration="19182000" />
       <workItem from="1491273171045" duration="12609000" />
       <workItem from="1491324448737" duration="3273000" />
-      <workItem from="1491355266677" duration="4693000" />
+      <workItem from="1491355266677" duration="4901000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92646000" />
+    <option name="totallyTimeSpent" value="92854000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1200" extended-state="0" />
@@ -1261,14 +1257,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/controllers/registrationForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-210">
-          <caret line="50" column="14" lean-forward="true" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/templates/registrationPage.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1023">
@@ -1362,6 +1350,14 @@
           <folding>
             <element signature="n#style#0;n#a#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/controllers/registrationForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="67" column="24" lean-forward="false" selection-start-line="67" selection-start-column="24" selection-end-line="67" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
