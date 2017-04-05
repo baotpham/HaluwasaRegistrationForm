@@ -37,33 +37,26 @@
                 <input ng-model="mainMember.lastName" style="width: 100%" type="text" id="mainMemberLastName" name="mainMemberLastName"
                        required>
             </th>
-            <th style="width: 6%">
-                <label class="haluwasa-label-input-field" for="mainMemberShirtSize">Size*</label>
+            <th style="width: 10%">
+                <label class="haluwasa-label-input-field" for="mainMemberShirtSize">T-Shirt Size*</label>
                 <select ng-model="mainMember.shirtSize" style="height: 70px; width: 100%;" id="mainMemberShirtSize" name="mainMemberShirtSize" required>
                     <option value="S">S</option>
                     <option value="M">M</option>
                     <option value="L">L</option>
                 </select>
             </th>
-            <th style="width: 10%">
-                <label class="haluwasa-label-input-field" for="mainMemberDob">DOB*</label>
-                <input ng-model="mainMember.dob" style="width: 100%" type="date" id="mainMemberDob" name="mainMemberDob" required>
-            </th>
             <th style="width: 6%">
                 <label class="haluwasa-label-input-field" for="mainMemberGender">Gender*</label>
                 <select ng-model="mainMember.gender" style="height: 70px; width: 100%" id="mainMemberGender" name="mainMemberGender" required>
-                    <option value="F">F</option>
-                    <option value="M">M</option>
+                    <option value="Female">F</option>
+                    <option value="Male">M</option>
                 </select>
             </th>
             <th style="width: 6%">
                 <label class="haluwasa-label-input-field" for="mainMemberAge">Age*</label>
-                <input ng-model="mainMember.age" style="width: 100%" type="number" min="0" id="mainMemberAge" name="mainMemberAge" ng-change="updateTotalFee(mainMember.age)" required>
+                <input ng-model="mainMember.age" style="width: 100%" type="number" min="0" id="mainMemberAge" name="mainMemberAge" ng-blur="setMainMemberFee(mainMember.age); updateTotalFee()" required>
             </th>
-            <th style="width: 20%">
-                <!--<label class="haluwasa-label-input-field" for="mainMemberRelationship">Relationship*</label>-->
-                <!--<input ng-model="mainMember.relationship" style="width: 100%" type="text" id="mainMemberRelationship" name="mainMemberRelationship" required>-->
-            </th>
+            <th style="width: 20%"></th>
         </tr>
     </table>
 
@@ -82,33 +75,29 @@
                     <input ng-model="registerMemberToAdd.lastName" style="width: 100%" type="text" id="lastName" name="lastName" ng-change="updateRegisterMember(registerMemberToAdd)"
                            required>
                 </th>
-                <th style="width: 6%">
-                    <label class="haluwasa-label-input-field" for="shirtSize">Size*</label>
+                <th style="width: 10%">
+                    <label class="haluwasa-label-input-field" for="shirtSize">T-Shirt Size*</label>
                     <select ng-model="registerMemberToAdd.shirtSize" style="height: 70px; width: 100%;" id="shirtSize" name="shirtSize" ng-change="updateRegisterMember(registerMemberToAdd)" required>
                         <option value="S">S</option>
                         <option value="M">M</option>
                         <option value="L">L</option>
                     </select>
                 </th>
-                <th style="width: 10%">
-                    <label class="haluwasa-label-input-field" for="dob">DOB*</label>
-                    <input ng-model="registerMemberToAdd.dob" style="width: 100%" type="date" id="dob" name="dob" ng-change="updateRegisterMember(registerMemberToAdd)" required>
-                </th>
                 <th style="width: 6%">
                     <label class="haluwasa-label-input-field" for="gender">Gender*</label>
                     <select ng-model="registerMemberToAdd.gender" style="height: 70px; width: 100%" id="gender" name="gender" ng-change="updateRegisterMember(registerMemberToAdd)" required>
-                        <option value="F">F</option>
-                        <option value="M">M</option>
+                        <option value="Female">F</option>
+                        <option value="Male">M</option>
                     </select>
                 </th>
                 <th style="width: 6%">
                     <label class="haluwasa-label-input-field" for="age">Age*</label>
-                    <input ng-model="registerMemberToAdd.age" style="width: 100%" type="number" min="0" id="age" name="age" ng-change="updateRegisterMember(registerMemberToAdd); updateTotalFee(registerMemberToAdd.age);" required>
+                    <input ng-model="registerMemberToAdd.age" style="width: 100%" type="number" min="1" id="age" name="age" ng-blur="setRegisterMembersToAddFee(registerMemberToAdd); updateTotalFee();" required>
                 </th>
                 <th style="width: 20%">
                     <label class="haluwasa-label-input-field" for="relationship">Relationship*</label>
-                    <input ng-model="registerMemberToAdd.relationship" style="width: 80%" type="text" id="relationship" name="relationship" ng-change="updateRegisterMember(registerMemberToAdd)" required>
-                    <img src="../../img/deleteAMember.png" width="20px" alt="deleteButton" ng-click="deleteMember(registerMemberToAdd)">
+                    <input ng-model="registerMemberToAdd.relationship" style="width: 70%" type="text" id="relationship" name="relationship" ng-change="updateRegisterMember(registerMemberToAdd)" required>
+                    <img src="../../img/deleteAMember.png" height="20px"  style="padding: 4px;" alt="deleteButton" ng-click="deleteMember(registerMemberToAdd)">
                 </th>
             </tr>
         </table>
@@ -116,7 +105,6 @@
 
     <br><br>
     <img src="../img/addAnotherMember.png" style="margin-left: 20px;" ng-click="addAnotherMember()">
-    <img src="" class="deleteMember">
 
 
     <br><br>

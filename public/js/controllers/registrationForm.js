@@ -13,6 +13,8 @@ var controllers = angular.module('app.controllers', [])
             $scope.errorpopup = "";
             $scope.thankyou = false;
 
+            //total fees
+            $scope.allFees = [];
             $scope.totalFee = 0;
 
             //list of other members to add
@@ -26,7 +28,6 @@ var controllers = angular.module('app.controllers', [])
                 firstName: "",
                 lastName: "",
                 shirtSize: "",
-                dob: "",
                 gender: "",
                 age: "",
                 relationship: "Does not apply!",
@@ -45,10 +46,12 @@ var controllers = angular.module('app.controllers', [])
                 emergencyLastName: "",
                 emergencyPhone: "",
                 emergencyRelationship: "",
-                methodOfPayment: ""
+                methodOfPayment: "",
+                fee: 0
             };
 
             $scope.updateRegisterMember = function (registerMemberToAdd){
+                console.log("update register Member fee: " + registerMemberToAdd.fee);
                 if($scope.registerMembers.length === 0){
                     $scope.registerMembers.push(registerMemberToAdd);
                 }else if($scope.registerMembers.length >= registerMemberToAdd.index) {
@@ -61,26 +64,26 @@ var controllers = angular.module('app.controllers', [])
             var registerMemberIndex = 0;
 
             $scope.addAnotherMember = function(){
-                if(isReadyToAddAnotherMember()){
+                // if(isReadyToAddAnotherMember()){
                     $scope.errorpopup = "";
 
                     $scope.registerMembersToAdd.push({
                         firstName: "",
                         lastName: "",
                         shirtSize: "",
-                        dob: "",
                         gender: "",
                         age: "",
                         relationship: "",
-                        index: registerMemberIndex
+                        index: registerMemberIndex,
+                        fee: 0
                     });
 
                     registerMemberIndex++;
                     console.log("registrationFormCtrl: added a member");
-                }else{
-                    //scroll up to the top of the page
-                    $window.scrollTo(0, 0);
-                }
+                // }else{
+                //     //scroll up to the top of the page
+                //     $window.scrollTo(0, 0);
+                // }
             };
 
             //check for empty fields
@@ -92,10 +95,7 @@ var controllers = angular.module('app.controllers', [])
                     $scope.errorpopup = "Last Name is empty";
                     return false;
                 }else if($scope.mainMember.shirtSize === "" || $scope.mainMember.shirtSize === " "){
-                    $scope.errorpopup = "Shirt Size is empty";
-                    return false;
-                }else if($scope.mainMember.dob === "" || $scope.mainMember.dob === " "){
-                    $scope.errorpopup = "DOB is empty";
+                    $scope.errorpopup = "T-Shirt Shirt Size is empty";
                     return false;
                 }else if($scope.mainMember.gender === "" || $scope.mainMember.gender === " "){
                     $scope.errorpopup = "Gender is empty";
@@ -103,46 +103,96 @@ var controllers = angular.module('app.controllers', [])
                 }else if ($scope.mainMember.age === "" || $scope.mainMember.age === " "){
                     $scope.errorpopup = "Age is empty";
                     return false;
-                // }else if($scope.mainMember.relationship === "" || $scope.mainMember.relationship === " "){
-                //     $scope.errorpopup = "Relationship is empty";
-                //     return false;
                 }else{
                     return true;
                 }
             }
 
-            //update fee
-            $scope.updateTotalFee = function(age){
+            //update main member fee
+            $scope.setMainMemberFee = function(age){
                 if(age <= 5){
                     $scope.errorpopup = "";
-                    $scope.totalFee += 0;
+                    $scope.mainMember.fee = 0
                 }else if(age >= 6 && age <= 11){
                     $scope.errorpopup = "";
-                    $scope.totalFee += 60;
+                    $scope.mainMember.fee = 60;
                 }else if(age >= 12 && age <= 19){
                     $scope.errorpopup = "";
-                    $scope.totalFee += 100;
+                    $scope.mainMember.fee = 100;
                 }else if(age >= 20){
                     $scope.errorpopup = "";
-                    $scope.totalFee += 120;
+                    $scope.mainMember.fee = 120;
                 }else{
                     $window.scrollTo(0, 0);
                     $scope.errorpopup = "Age is empty";
                 }
             };
 
+            //update fee
+            $scope.setRegisterMembersToAddFee = function(registerMemberToAdd){
+                if(registerMemberToAdd.age <= 5){
+                    $scope.errorpopup = "";
+                    registerMemberToAdd.fee = 0; //update fee
+                    $scope.updateRegisterMember(registerMemberToAdd); //update the registerMember[]
+                }else if(registerMemberToAdd.age >= 6 && registerMemberToAdd.age <= 11){
+                    $scope.errorpopup = "";
+                    registerMemberToAdd.fee = 60;
+                    $scope.updateRegisterMember(registerMemberToAdd);
+                }else if(registerMemberToAdd.age >= 12 && registerMemberToAdd.age <= 19){
+                    $scope.errorpopup = "";
+                    registerMemberToAdd.fee = 100;
+                    $scope.updateRegisterMember(registerMemberToAdd);
+                }else if(registerMemberToAdd.age >= 20){
+                    $scope.errorpopup = "";
+                    registerMemberToAdd.fee = 120;
+                    $scope.updateRegisterMember(registerMemberToAdd);
+                }else{
+                    $window.scrollTo(0, 0);
+                    $scope.errorpopup = "Age is empty";
+                }
+            };
+
+            //update the fee whenever Age gets modified
+            $scope.updateTotalFee = function(){
+
+                //reset allFees because Angular re-render the div
+                $scope.allFees = [];
+
+                //add all fee into all Fees
+                $scope.registerMembers.forEach(function (registerMember) {
+                   $scope.allFees.push(registerMember.fee);
+                });
+
+                //calculate the new fee
+                if($scope.allFees.length > 0) {
+                    var sum = 0;
+                    $scope.allFees.forEach(function (fee) {
+                        sum += fee;
+                    });
+                    $scope.totalFee = sum + $scope.mainMember.fee;
+                }else{
+                    $scope.totalFee = $scope.mainMember.fee;
+                }
+
+            };
+
+            //subtract from total fee when delete a member
             function subtractFromTotalFee(age){
                 if(age <= 5){
                     $scope.errorpopup = "";
+                    $scope.allFees.splice($scope.allFees.indexOf(0), 1); //remove fee from allFees
                     $scope.totalFee -= 0;
                 }else if(age >= 6 && age <= 11){
                     $scope.errorpopup = "";
+                    $scope.allFees.splice($scope.allFees.indexOf(60), 1);
                     $scope.totalFee -= 60;
                 }else if(age >= 12 && age <= 19){
                     $scope.errorpopup = "";
+                    $scope.allFees.splice($scope.allFees.indexOf(100), 1);
                     $scope.totalFee -= 100;
                 }else if(age >= 20){
                     $scope.errorpopup = "";
+                    $scope.allFees.splice($scope.allFees.indexOf(120), 1);
                     $scope.totalFee -= 120;
                 }else{
                     $window.scrollTo(0, 0);
@@ -218,7 +268,6 @@ var controllers = angular.module('app.controllers', [])
                             "entry.852805865": $scope.mainMember.firstName,
                             "entry.1666999625": $scope.mainMember.lastName,
                             "entry.1035954706": $scope.mainMember.shirtSize,
-                            "entry.1509131140": $scope.mainMember.dob,
                             "entry.1165623676": $scope.mainMember.gender,
                             "entry.736906667": $scope.mainMember.age,
                             "entry.906671770": $scope.mainMember.relationship,
@@ -255,10 +304,9 @@ var controllers = angular.module('app.controllers', [])
                                     "entry.852805865": registerMember.firstName,
                                     "entry.1666999625": registerMember.lastName,
                                     "entry.1035954706": registerMember.shirtSize,
-                                    "entry.1509131140": registerMember.dob,
                                     "entry.1165623676": registerMember.gender,
                                     "entry.736906667": registerMember.age,
-                                    "entry.906671770": registerMember.relationship + 'to' + $scope.mainMember.firstName + ' ' + $scope.mainMember.lastName,
+                                    "entry.906671770": registerMember.relationship + ' to ' + $scope.mainMember.firstName + ' ' + $scope.mainMember.lastName,
                                     "entry.170736755": address,
                                     "entry.1725771503": $scope.mainMember.phone,
                                     "entry.1662824886": $scope.mainMember.email,
@@ -274,15 +322,6 @@ var controllers = angular.module('app.controllers', [])
                                 },
                                 type: "POST",
                                 dataType: "xml"
-                                // statusCode: {
-                                //     0: function () {
-                                //
-                                //         alert("You have successfully registered!");
-                                //     },
-                                //     200: function () {
-                                //         alert("You have successfully registered! 200");
-                                //     }
-                                // }
                             });
                         })
                     }
