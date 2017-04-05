@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="92903de6-d4b0-41b1-bfae-f291c4723df9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/controllers/registrationForm.js" afterPath="$PROJECT_DIR$/public/js/controllers/registrationForm.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/templates/registrationPage.html" afterPath="$PROJECT_DIR$/public/templates/registrationPage.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -53,7 +54,7 @@
             <entry file="file://$PROJECT_DIR$/public/js/controllers/registrationForm.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="276">
-                  <caret line="67" column="24" lean-forward="false" selection-start-line="67" selection-start-column="24" selection-end-line="67" selection-end-column="24" />
+                  <caret line="67" column="20" lean-forward="false" selection-start-line="67" selection-start-column="20" selection-end-line="67" selection-end-column="20" />
                   <folding />
                 </state>
               </provider>
@@ -65,7 +66,7 @@
         <splitter split-orientation="horizontal" split-proportion="0.5295056">
           <split-first>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-              <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+              <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/public/index.html">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="645">
@@ -117,11 +118,11 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="registrationPage.html" pinned="false" current-in-tab="false">
+              <file leaf-file-name="registrationPage.html" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/public/templates/registrationPage.html">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="1023">
-                      <caret line="115" column="12" lean-forward="true" selection-start-line="115" selection-start-column="12" selection-end-line="115" selection-end-column="12" />
+                    <state relative-caret-position="617">
+                      <caret line="98" column="86" lean-forward="false" selection-start-line="98" selection-start-column="86" selection-end-line="98" selection-end-column="86" />
                       <folding>
                         <element signature="n#style#0;n#h1#0;n#!!top" expanded="true" />
                         <element signature="n#style#0;n#h1#1;n#!!top" expanded="true" />
@@ -150,7 +151,6 @@
                         <element signature="n#style#0;n#th#4;n#tr#0;n#table#0;n#div#0;n#form#0;n#!!top" expanded="true" />
                         <element signature="n#style#0;n#input#0;n#th#4;n#tr#0;n#table#0;n#div#0;n#form#0;n#!!top" expanded="true" />
                         <element signature="n#style#0;n#th#5;n#tr#0;n#table#0;n#div#0;n#form#0;n#!!top" expanded="true" />
-                        <element signature="n#style#0;n#input#0;n#th#5;n#tr#0;n#table#0;n#div#0;n#form#0;n#!!top" expanded="true" />
                         <element signature="n#style#0;n#img#0;n#th#5;n#tr#0;n#table#0;n#div#0;n#form#0;n#!!top" expanded="true" />
                         <element signature="n#style#0;n#img#0;n#form#0;n#!!top" expanded="true" />
                         <element signature="n#style#0;n#h1#0;n#form#0;n#!!top" expanded="true" />
@@ -204,7 +204,7 @@
               <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/public/css/style.css">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="778">
+                    <state relative-caret-position="770">
                       <caret line="105" column="13" lean-forward="false" selection-start-line="105" selection-start-column="13" selection-end-line="105" selection-end-column="13" />
                       <folding />
                     </state>
@@ -256,9 +256,9 @@
         <option value="$PROJECT_DIR$/public/templates/homePage.html" />
         <option value="$PROJECT_DIR$/public/templates/aboutUs.html" />
         <option value="$PROJECT_DIR$/public/templates/contactUs.html" />
-        <option value="$PROJECT_DIR$/public/templates/registrationPage.html" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/public/css/style.css" />
+        <option value="$PROJECT_DIR$/public/templates/registrationPage.html" />
         <option value="$PROJECT_DIR$/public/js/controllers/registrationForm.js" />
       </list>
     </option>
@@ -530,12 +530,12 @@
       <workItem from="1491106730565" duration="19182000" />
       <workItem from="1491273171045" duration="12609000" />
       <workItem from="1491324448737" duration="3273000" />
-      <workItem from="1491355266677" duration="4901000" />
+      <workItem from="1491355266677" duration="5288000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92854000" />
+    <option name="totallyTimeSpent" value="93241000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1200" extended-state="0" />
@@ -635,7 +635,6 @@
             <element signature="n#style#0;n#th#4;n#tr#0;n#table#0;n#div#0;n#form#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#th#4;n#tr#0;n#table#0;n#div#0;n#form#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#th#5;n#tr#0;n#table#0;n#div#0;n#form#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#th#5;n#tr#0;n#table#0;n#div#0;n#form#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#th#5;n#tr#0;n#table#0;n#div#0;n#form#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#form#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h1#0;n#form#0;n#!!top" expanded="true" />
@@ -749,7 +748,6 @@
             <element signature="n#style#0;n#th#4;n#tr#0;n#table#0;n#div#0;n#form#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#th#4;n#tr#0;n#table#0;n#div#0;n#form#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#th#5;n#tr#0;n#table#0;n#div#0;n#form#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#th#5;n#tr#0;n#table#0;n#div#0;n#form#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#th#5;n#tr#0;n#table#0;n#div#0;n#form#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#form#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h1#0;n#form#0;n#!!top" expanded="true" />
@@ -863,7 +861,6 @@
             <element signature="n#style#0;n#th#4;n#tr#0;n#table#0;n#div#0;n#form#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#th#4;n#tr#0;n#table#0;n#div#0;n#form#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#th#5;n#tr#0;n#table#0;n#div#0;n#form#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#th#5;n#tr#0;n#table#0;n#div#0;n#form#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#th#5;n#tr#0;n#table#0;n#div#0;n#form#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#form#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h1#0;n#form#0;n#!!top" expanded="true" />
@@ -977,7 +974,6 @@
             <element signature="n#style#0;n#th#4;n#tr#0;n#table#0;n#div#0;n#form#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#th#4;n#tr#0;n#table#0;n#div#0;n#form#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#th#5;n#tr#0;n#table#0;n#div#0;n#form#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#th#5;n#tr#0;n#table#0;n#div#0;n#form#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#th#5;n#tr#0;n#table#0;n#div#0;n#form#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#form#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h1#0;n#form#0;n#!!top" expanded="true" />
@@ -1091,7 +1087,6 @@
             <element signature="n#style#0;n#th#4;n#tr#0;n#table#0;n#div#0;n#form#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#th#4;n#tr#0;n#table#0;n#div#0;n#form#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#th#5;n#tr#0;n#table#0;n#div#0;n#form#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#th#5;n#tr#0;n#table#0;n#div#0;n#form#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#th#5;n#tr#0;n#table#0;n#div#0;n#form#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#form#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h1#0;n#form#0;n#!!top" expanded="true" />
@@ -1231,6 +1226,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="770">
+          <caret line="105" column="13" lean-forward="false" selection-start-line="105" selection-start-column="13" selection-end-line="105" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="43" column="95" lean-forward="false" selection-start-line="43" selection-start-column="78" selection-end-line="43" selection-end-column="95" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/templates/aboutUs.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -1259,8 +1272,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/templates/registrationPage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1023">
-          <caret line="115" column="12" lean-forward="true" selection-start-line="115" selection-start-column="12" selection-end-line="115" selection-end-column="12" />
+        <state relative-caret-position="617">
+          <caret line="98" column="86" lean-forward="false" selection-start-line="98" selection-start-column="86" selection-end-line="98" selection-end-column="86" />
           <folding>
             <element signature="n#style#0;n#h1#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h1#1;n#!!top" expanded="true" />
@@ -1289,7 +1302,6 @@
             <element signature="n#style#0;n#th#4;n#tr#0;n#table#0;n#div#0;n#form#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#th#4;n#tr#0;n#table#0;n#div#0;n#form#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#th#5;n#tr#0;n#table#0;n#div#0;n#form#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#th#5;n#tr#0;n#table#0;n#div#0;n#form#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#th#5;n#tr#0;n#table#0;n#div#0;n#form#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#form#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h1#0;n#form#0;n#!!top" expanded="true" />
@@ -1335,28 +1347,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="778">
-          <caret line="105" column="13" lean-forward="false" selection-start-line="105" selection-start-column="13" selection-end-line="105" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="43" column="95" lean-forward="false" selection-start-line="43" selection-start-column="78" selection-end-line="43" selection-end-column="95" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/controllers/registrationForm.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
-          <caret line="67" column="24" lean-forward="false" selection-start-line="67" selection-start-column="24" selection-end-line="67" selection-end-column="24" />
+          <caret line="67" column="20" lean-forward="false" selection-start-line="67" selection-start-column="20" selection-end-line="67" selection-end-column="20" />
           <folding />
         </state>
       </provider>
