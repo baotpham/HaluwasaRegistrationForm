@@ -230,13 +230,20 @@
     <!--Payment-->
     <br>
     <hr>
-    <h1 style="font-size: 30px; margin-left: 20px;">Payment</h1>
-    <p style="margin-left: 20px;">*All payments are paid in person.</p><br>
+    <h1 style="font-size: 30px; margin-left: 20px;">Payment</h1><br>
     <label class="haluwasa-label-input-field" style="margin-left: 20px;" for="methodOfPayment">Method of Payment*</label><br>
     <select ng-model="mainMember.methodOfPayment" style="height: 70px; margin-left: 20px;" id="methodOfPayment" name="methodOfPayment" required>
         <option value="Check">Check</option>
         <option value="Cash">Cash</option>
-    </select>
+    </select><br>
+    <p style="margin-left: 20px; font-size: 20px;" ng-if="mainMember.methodOfPayment == 'Check'">
+        **Please send all check payments to:<br>
+        <b>Haluwasa Registration Team <br>
+            9615 Park Ave, Laurel, MD 20723</b>
+    </p>
+    <p style="margin-left: 20px; font-size: 20px;" ng-if="mainMember.methodOfPayment == 'Cash'">
+        **All cash payments are paid in person
+    </p>
 
 
     <!--Total Fee-->

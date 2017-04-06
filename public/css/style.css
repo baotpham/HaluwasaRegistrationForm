@@ -1,4 +1,8 @@
-/*reset the page style*/
+/*-------------------------------------------*/
+/*
+* Reset
+*
+*/
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption {
     margin: 0;
     padding: 0;
@@ -13,6 +17,10 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 td, th {
     text-align: left;
     padding: 10px;
+}
+
+p{
+    font-family: "San Francisco Display Ultralight", sans-serif;
 }
 
 
@@ -158,17 +166,51 @@ select {
     cursor: pointer;
 }
 
-.title{
-    padding-top: 250px;
+.under-construction{
+    padding: 14px 16px;
     font-size: 80px;
+    font-family: "San Francisco Display Medium", sans-serif;
+    color: black;
+    letter-spacing: 6px;
+}
+
+.under-construction-sub{
+    padding: 20px 16px;
+    font-size: 30px;
     font-family: "San Francisco Display Bold", sans-serif;
     color: white;
+}
+
+.title{
+    float: left;
+    padding: 14px 16px;
+    font-size: 20px;
+    font-family: "San Francisco Display Medium", sans-serif;
+    color: black;
+    letter-spacing: 6px;
 }
 
 .subTitle{
     padding-top: 20px;
     font-size: 30px;
     font-family: "San Francisco Display Bold", sans-serif;
+    color: white;
+}
+
+.themes{
+    position: relative;
+}
+
+.haluwasa-theme{
+    padding-top: 250px;
+    font-family: 'Kaushan Script', cursive;
+    font-size: 110px;
+    color: white;
+}
+
+.haluwasa-theme-sub{
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 40px;
     color: white;
 }
 
@@ -187,6 +229,7 @@ select {
 
 .haluwasa-button-register-now{
     margin: 40px auto 600px auto;
+    padding: 0 15px;
     text-align: center;
     border: 4px solid white;
     background: transparent;
@@ -199,6 +242,7 @@ select {
 
 .haluwasa-button-register-now:hover{
     background: white;
+    color: black;
 }
 
 /*-------------------------------------------*/
