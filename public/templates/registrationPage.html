@@ -40,9 +40,32 @@
             <th style="width: 10%">
                 <label class="haluwasa-label-input-field" for="mainMemberShirtSize">T-Shirt Size*</label>
                 <select ng-model="mainMember.shirtSize" style="height: 70px; width: 100%;" id="mainMemberShirtSize" name="mainMemberShirtSize" required>
-                    <option value="S">S</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
+                    <optgroup label="Toddlers">
+                        <option value="Toddlers: 3T">3T</option>
+                        <option value="Toddlers: 4T">4T</option>
+                        <option value="Toddlers: 5T">5T</option>
+                    </optgroup>
+                    <optgroup label="Youth">
+                        <option value="Youth: S">S</option>
+                        <option value="Youth: M">M</option>
+                        <option value="Youth: L">L</option>
+                    </optgroup>
+                    <optgroup label="Junior">
+                        <option value="Junior: S">S</option>
+                        <option value="Junior: M">M</option>
+                        <option value="Junior: L">L</option>
+                        <option value="Junior: X-L">X-L</option>
+                        <option value="Junior: 2X-L">2X-L</option>
+                    </optgroup>
+                    <optgroup label="Adult">
+                        <option value="Adult: S">S</option>
+                        <option value="Adult: M">M</option>
+                        <option value="Adult: L">L</option>
+                        <option value="Adult: X-L">X-L</option>
+                        <option value="Adult: 2X-L">2X-L</option>
+                        <option value="Adult: 3X-L">3X-L</option>
+                        <option value="Adult: 4X-L">4X-L</option>
+                    </optgroup>
                 </select>
             </th>
             <th style="width: 6%">
@@ -78,9 +101,32 @@
                 <th style="width: 10%">
                     <label class="haluwasa-label-input-field" for="shirtSize">T-Shirt Size*</label>
                     <select ng-model="registerMemberToAdd.shirtSize" style="height: 70px; width: 100%;" id="shirtSize" name="shirtSize" ng-change="updateRegisterMember(registerMemberToAdd)" required>
-                        <option value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
+                        <optgroup label="Toddlers">
+                            <option value="Toddlers: 3T">3T</option>
+                            <option value="Toddlers: 4T">4T</option>
+                            <option value="Toddlers: 5T">5T</option>
+                        </optgroup>
+                        <optgroup label="Youth">
+                            <option value="Youth: S">S</option>
+                            <option value="Youth: M">M</option>
+                            <option value="Youth: L">L</option>
+                        </optgroup>
+                        <optgroup label="Junior">
+                            <option value="Junior: S">S</option>
+                            <option value="Junior: M">M</option>
+                            <option value="Junior: L">L</option>
+                            <option value="Junior: X-L">X-L</option>
+                            <option value="Junior: 2X-L">2X-L</option>
+                        </optgroup>
+                        <optgroup label="Adult">
+                            <option value="Adult: S">S</option>
+                            <option value="Adult: M">M</option>
+                            <option value="Adult: L">L</option>
+                            <option value="Adult: X-L">X-L</option>
+                            <option value="Adult: 2X-L">2X-L</option>
+                            <option value="Adult: 3X-L">3X-L</option>
+                            <option value="Adult: 4X-L">4X-L</option>
+                        </optgroup>
                     </select>
                 </th>
                 <th style="width: 6%">
