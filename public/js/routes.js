@@ -42,6 +42,13 @@ angular.module('app.routes', ['ui.router'])
                 controller: 'homePageCtrl'
             })
 
+            .state('thankyouPage',{
+                name: 'Thank You',
+                url: '/thankyou',
+                templateUrl: 'templates/thankYou.html',
+                controller: 'thankYouCtrl'
+            })
+
 
         $urlRouterProvider.otherwise('/')
     });

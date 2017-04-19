@@ -5,9 +5,9 @@
 var controllers = angular.module('app.controllers', [])
 
 
-    .controller('registrationPageCtrl', ['$scope', '$window',
+    .controller('registrationPageCtrl', ['$scope', '$window', '$state',
 
-        function ($scope, $window) {
+        function ($scope, $window, $state) {
 
             //errors handling
             $scope.errorpopup = "";
@@ -47,7 +47,8 @@ var controllers = angular.module('app.controllers', [])
                 emergencyPhone: "",
                 emergencyRelationship: "",
                 methodOfPayment: "",
-                fee: 0
+                fee: 0,
+                isPaid: "No"
             };
 
             $scope.updateRegisterMember = function (registerMemberToAdd){
@@ -282,49 +283,64 @@ var controllers = angular.module('app.controllers', [])
                             "entry.57695788": $scope.mainMember.emergencyLastName,
                             "entry.706727831": $scope.mainMember.emergencyPhone,
                             "entry.1277356253": $scope.mainMember.emergencyRelationship,
-                            "entry.513632018": $scope.mainMember.methodOfPayment
+                            "entry.513632018": $scope.mainMember.methodOfPayment,
+                            "entry.645825977": $scope.mainMember.fee,
+                            "entry.233704442": "" //isPaid
                         },
                         type: "POST",
                         dataType: "xml",
                         statusCode: {
                             0: function () {
-                                alert("You have successfully registered!");
+                                if($scope.registerMembers.length > 0){
+                                    $scope.registerMembers.forEach(function(registerMember){
+                                        $.ajax({
+                                            url: "https://docs.google.com/forms/d/e/1FAIpQLSdY2Je4WcNPkMs27aAADbaF4E5iH6biWUhVwZqz18BvbcbMFA/formResponse",
+                                            data: {
+                                                "entry.852805865": registerMember.firstName,
+                                                "entry.1666999625": registerMember.lastName,
+                                                "entry.1035954706": registerMember.shirtSize,
+                                                "entry.1165623676": registerMember.gender,
+                                                "entry.736906667": registerMember.age,
+                                                "entry.906671770": registerMember.relationship + ' to ' + $scope.mainMember.firstName + ' ' + $scope.mainMember.lastName,
+                                                "entry.170736755": address,
+                                                "entry.1725771503": $scope.mainMember.phone,
+                                                "entry.1662824886": $scope.mainMember.email,
+                                                "entry.533389635": $scope.mainMember.homeChurch,
+                                                "entry.1651271441": $scope.mainMember.churchPhone,
+                                                "entry.162274431": $scope.mainMember.medical,
+                                                "entry.372693286": $scope.mainMember.medicalDesc,
+                                                "entry.837390161": $scope.mainMember.emergencyFirstName,
+                                                "entry.57695788": $scope.mainMember.emergencyLastName,
+                                                "entry.706727831": $scope.mainMember.emergencyPhone,
+                                                "entry.1277356253": $scope.mainMember.emergencyRelationship,
+                                                "entry.513632018": $scope.mainMember.methodOfPayment,
+                                                "entry.645825977": registerMember.fee
+                                            },
+                                            type: "POST",
+                                            dataType: "xml",
+                                            statusCode:{
+                                                0: function () {
+                                                    $window.scrollTo(0, 0);
+                                                    $state.go('thankyouPage');
+                                                },
+                                                200: function () {
+                                                    alert("You have successfully registered! 200");
+                                                    $state.go('thankyouPage');
+                                                }
+                                            }
+                                        });
+                                    })
+                                }else{
+                                    $window.scrollTo(0, 0);
+                                    $state.go('thankyouPage');
+                                }
                             },
                             200: function () {
                                 alert("You have successfully registered! 200");
+                                $state.go('thankyouPage');
                             }
                         }
                     });
-
-                    if($scope.registerMembers.length > 0){
-                        $scope.registerMembers.forEach(function(registerMember){
-                            $.ajax({
-                                url: "https://docs.google.com/forms/d/e/1FAIpQLSdY2Je4WcNPkMs27aAADbaF4E5iH6biWUhVwZqz18BvbcbMFA/formResponse",
-                                data: {
-                                    "entry.852805865": registerMember.firstName,
-                                    "entry.1666999625": registerMember.lastName,
-                                    "entry.1035954706": registerMember.shirtSize,
-                                    "entry.1165623676": registerMember.gender,
-                                    "entry.736906667": registerMember.age,
-                                    "entry.906671770": registerMember.relationship + ' to ' + $scope.mainMember.firstName + ' ' + $scope.mainMember.lastName,
-                                    "entry.170736755": address,
-                                    "entry.1725771503": $scope.mainMember.phone,
-                                    "entry.1662824886": $scope.mainMember.email,
-                                    "entry.533389635": $scope.mainMember.homeChurch,
-                                    "entry.1651271441": $scope.mainMember.churchPhone,
-                                    "entry.162274431": $scope.mainMember.medical,
-                                    "entry.372693286": $scope.mainMember.medicalDesc,
-                                    "entry.837390161": $scope.mainMember.emergencyFirstName,
-                                    "entry.57695788": $scope.mainMember.emergencyLastName,
-                                    "entry.706727831": $scope.mainMember.emergencyPhone,
-                                    "entry.1277356253": $scope.mainMember.emergencyRelationship,
-                                    "entry.513632018": $scope.mainMember.methodOfPayment
-                                },
-                                type: "POST",
-                                dataType: "xml"
-                            });
-                        })
-                    }
                 }else{
                     $window.scrollTo(0, 0);
                 }
