@@ -25,12 +25,14 @@ var controllers = angular.module('app.controllers', [])
 
             //main member information
             $scope.mainMember = {
+                isVolunteer: "No",
+                volunteerType: "",
                 firstName: "",
                 lastName: "",
                 shirtSize: "",
                 gender: "",
                 age: "",
-                relationship: "Does not apply!",
+                relationship: "",
                 address : "",
                 address2: "",
                 city: "",
@@ -50,6 +52,22 @@ var controllers = angular.module('app.controllers', [])
                 fee: 0,
                 isPaid: "No"
             };
+
+
+            //volunteers who have discounts 2017
+            $scope.youthBandMembers2017 = ["Bao Pham", "Danny Chu", "Randy Lo", "Anthony Bui",
+                                           "Julie Pham", "Danny Lo", "Peter Tran", "Leann Ngo",
+                                           "Loc Ngo", "Michelle Nguyen", "Bao Nguyen", "James Tran"];
+
+            $scope.kitchenStaff2017 = ["Thien-Huong Pham", "Hoa Vu", "Phuong Nguyen", "Thu Le",
+                                       "Trinh Cao", "Duc Nguyen", "Xuan Cao", "Tuyet", "Dai"];
+
+            $scope.pastorsFromVN2017 = ["Ai Pham", "Hong-Nhan Pham", "Dung Trinh"];
+
+            $scope.youthSmallGroupLeaders2017 = ["Nga Truong", "Linda Tran", "Aila Huang", "Cindy Ha",
+                                                 "Anjelica Yeung", "Jennifer Im", "Thang Ha", "Brian Do",
+                                                 "Khang Nguyen", "John Yuh", "Tony Tra", "Luan Pham"];
+
 
             $scope.updateRegisterMember = function (registerMemberToAdd){
                 console.log("update register Member fee: " + registerMemberToAdd.fee);
@@ -109,23 +127,48 @@ var controllers = angular.module('app.controllers', [])
                 }
             }
 
-            //update main member fee
-            $scope.setMainMemberFee = function(age){
+            //return member fee accordingly
+            function getMemberFeeFromAge(age, discount){
                 if(age <= 5){
                     $scope.errorpopup = "";
                     $scope.mainMember.fee = 0
                 }else if(age >= 6 && age <= 11){
                     $scope.errorpopup = "";
-                    $scope.mainMember.fee = 60;
+                    $scope.mainMember.fee = 60 * discount;
                 }else if(age >= 12 && age <= 19){
                     $scope.errorpopup = "";
-                    $scope.mainMember.fee = 100;
-                }else if(age >= 20){
+                    $scope.mainMember.fee = 100 * discount;
+                }else if(age >= 20 && age <=89){
                     $scope.errorpopup = "";
-                    $scope.mainMember.fee = 120;
+                    $scope.mainMember.fee = 120 * discount;
+                }else if(age >= 90){
+                    $scope.errorpopup = "";
+                    $scope.mainMember.fee = 60 * discount;
                 }else{
                     $window.scrollTo(0, 0);
                     $scope.errorpopup = "Age is empty";
+                }
+            }
+
+            //update main member fee
+            $scope.setMainMemberFee = function(age){
+                if($scope.mainMember.isVolunteer === 'Yes'){
+                    if($scope.mainMember.volunteerType === 'Kitchen Staff'){
+                        getMemberFeeFromAge(age, 0);    //FREE
+                    }else if($scope.mainMember.volunteerType === 'Youth Worship Team Member'){
+                        getMemberFeeFromAge(age, 0.5);  //50% off
+                    }else if($scope.mainMember.volunteerType === 'Youth Small Group Leader'){
+                        getMemberFeeFromAge(age, 0.5);  //50% off
+                    }else if($scope.mainMember.volunteerType === 'Guest Pastor from Vietnam'){
+                        getMemberFeeFromAge(age, 0.5); //50% off
+                    }else if($scope.mainMember.volunteerType === 'Staff'){
+                        getMemberFeeFromAge(age, 1);  //no discount
+                    }
+                }else if($scope.mainMember.isVolunteer === 'No'){
+                    getMemberFeeFromAge(age, 1);
+                }else{
+                    $window.scrollTo(0, 0);
+                    $scope.errorpopup = "Are you a volunteer?";
                 }
             };
 
@@ -143,9 +186,13 @@ var controllers = angular.module('app.controllers', [])
                     $scope.errorpopup = "";
                     registerMemberToAdd.fee = 100;
                     $scope.updateRegisterMember(registerMemberToAdd);
-                }else if(registerMemberToAdd.age >= 20){
+                }else if(registerMemberToAdd.age >= 20 && registerMemberToAdd.age <=89){
                     $scope.errorpopup = "";
                     registerMemberToAdd.fee = 120;
+                    $scope.updateRegisterMember(registerMemberToAdd);
+                }else if(registerMemberToAdd.age >= 90){
+                    $scope.errorpopup = "";
+                    registerMemberToAdd.fee = 60;
                     $scope.updateRegisterMember(registerMemberToAdd);
                 }else{
                     $window.scrollTo(0, 0);
@@ -161,7 +208,7 @@ var controllers = angular.module('app.controllers', [])
 
                 //add all fee into all Fees
                 $scope.registerMembers.forEach(function (registerMember) {
-                   $scope.allFees.push(registerMember.fee);
+                    $scope.allFees.push(registerMember.fee);
                 });
 
                 //calculate the new fee
@@ -171,10 +218,9 @@ var controllers = angular.module('app.controllers', [])
                         sum += fee;
                     });
                     $scope.totalFee = sum + $scope.mainMember.fee;
-                }else{
+                }else {
                     $scope.totalFee = $scope.mainMember.fee;
                 }
-
             };
 
             //subtract from total fee when delete a member
@@ -284,6 +330,8 @@ var controllers = angular.module('app.controllers', [])
                             "entry.706727831": $scope.mainMember.emergencyPhone,
                             "entry.1277356253": $scope.mainMember.emergencyRelationship,
                             "entry.513632018": $scope.mainMember.methodOfPayment,
+                            "entry.2007924705": $scope.mainMember.isVolunteer,
+                            "entry.1635269168": $scope.mainMember.volunteerType,
                             "entry.645825977": $scope.mainMember.fee,
                             "entry.233704442": "" //isPaid
                         },
@@ -301,7 +349,7 @@ var controllers = angular.module('app.controllers', [])
                                                 "entry.1035954706": registerMember.shirtSize,
                                                 "entry.1165623676": registerMember.gender,
                                                 "entry.736906667": registerMember.age,
-                                                "entry.906671770": registerMember.relationship + ' to ' + $scope.mainMember.firstName + ' ' + $scope.mainMember.lastName,
+                                                "entry.906671770": registerMember.relationship + ' of ' + $scope.mainMember.firstName + ' ' + $scope.mainMember.lastName,
                                                 "entry.170736755": address,
                                                 "entry.1725771503": $scope.mainMember.phone,
                                                 "entry.1662824886": $scope.mainMember.email,
