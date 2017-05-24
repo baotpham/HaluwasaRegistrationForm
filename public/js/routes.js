@@ -17,7 +17,7 @@ angular.module('app.routes', ['ui.router'])
             .state('registration',{
                 name: 'Registration',
                 url: '/registration',
-                templateUrl: 'templates/registrationPage.html',
+                templateUrl: 'templates/closeRegistrations.html',
                 controller: 'registrationPageCtrl'
             })
 
